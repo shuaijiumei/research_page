@@ -1,0 +1,28 @@
+[
+   {
+    "title": "Scalable Supervising Software Agents with Patch Reasoner",
+    "authors": "Junjielong Xu, Boyin Tan, Xiaoyuan Liu, Chao Peng, Pengfei Gao, Pinjia He",
+    "venue": "ArXiv",
+    "year": "2025",
+    "highlight": "",
+    "thumbnail": "",
+    "link": "https://arxiv.org/abs/2510.22775",
+    "tags": [
+      { "text": "Paper", "link": "#" }
+    ]
+  },
+  {
+    "title": "AL-Bench: A Benchmark for Automatic Logging",
+    "authors": "Boyin Tan, Junjielong Xu, Zhouruixing Zhu, Pinjia He",
+    "venue": "ArXiv",
+    "year": "2025",
+    "highlight": "",
+    "link": "https://arxiv.org/abs/2502.03160",
+    "thumbnail": "assets/publications/al-bench.jpg",
+    "tags": [
+      { "text": "Paper", "link": "#" },
+      { "text": "Code", "link": "#" },
+      { "text": "Project Page", "link": "#" }
+    ]
+  }
+]
