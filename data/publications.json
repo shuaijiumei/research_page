@@ -1,4 +1,16 @@
 [
+     {
+    "title": "SWE-Manager: Selecting and Synthesizing Golden Proposals Before Coding",
+    "authors": "Boyin Tan, Haoning Deng, Junyuan Zhang, Junjielong Xu, Pinjia He, Youcheng Sun",
+    "venue": "ArXiv",
+    "year": "2026",
+    "highlight": "",
+    "thumbnail": "",
+    "link": "https://arxiv.org/abs/2601.22956",
+    "tags": [
+      { "text": "Paper", "link": "#" }
+    ]
+  },
    {
     "title": "Scalable Supervising Software Agents with Patch Reasoner",
     "authors": "Junjielong Xu, Boyin Tan, Xiaoyuan Liu, Chao Peng, Pengfei Gao, Pinjia He",
