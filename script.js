@@ -223,7 +223,7 @@ function loadPublications() {
           // Venue Tag
           const venueTagSpan = document.createElement("span");
           const venueShort = getVenueShortName(pub.venue, pub.year);
-          venueTagSpan.textContent = `[${venueShort}]`;
+          venueTagSpan.textContent = venueShort;
           venueTagSpan.className = "pub-venue-tag";
           if (
             venueShort.toLowerCase().includes("arxiv") ||
@@ -411,7 +411,7 @@ function getVenueShortName(venueStr, year) {
   if (s.includes("LNET")) return "IEEE LNET";
   if (s.includes("TNSE")) return "IEEE TNSE";
   if (s.includes("IOTJ") || s.includes("IoTJ")) return "IEEE IoTJ";
-  if (s.includes("TOSEM")) return "ACM TOSEM";
+  if (s.includes("TOSEM")) return "TOSEM";
 
   return s;
 }

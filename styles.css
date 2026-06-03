@@ -182,16 +182,36 @@ details summary {
 .pub-line-1 {
     font-size: 1rem;
     margin-bottom: 0.1rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
 }
 
 .pub-venue-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.1rem;
+    padding: 0.16rem 0.46rem;
+    border: 1px solid #d6a84f;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #fff8e6 0%, #f5dfaa 100%);
+    color: #6f3f00;
     font-weight: 700;
-    margin-right: 0.5rem;
+    font-size: 0.74rem;
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    vertical-align: baseline;
 }
 
 .pub-title-text {
+    min-width: 0;
     font-weight: 600;
     color: #1e293b;
+    overflow-wrap: anywhere;
 }
 
 .pub-link-btn {
@@ -215,11 +235,13 @@ details summary {
 }
 
 .tag-arxiv {
+    border-color: #bfdbfe;
+    background: #eff6ff;
     color: #2563eb; /* Blue for Arxiv */
 }
 
 .tag-conference {
-    color: #dc2626; /* Red for Conference/Journal */
+    color: #6f3f00; /* Warm label for Conference/Journal */
 }
 
 .pub-title-link {
