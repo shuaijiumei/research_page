@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* Base Styles */
 body {
     font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
@@ -451,6 +457,238 @@ details summary {
 
 .news-item:last-child {
     border-bottom: none;
+}
+
+/* Standalone archive pages */
+.archive-page {
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+.archive-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.archive-nav-inner {
+    width: 100%;
+    max-width: 1120px;
+    height: 4.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.archive-brand {
+    color: #1e293b;
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.archive-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.archive-nav-links a {
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.archive-nav-links a:hover {
+    color: #d4a562;
+}
+
+.archive-main {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3.25rem 1rem 4rem;
+}
+
+.archive-shell {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.archive-kicker {
+    min-height: 1.5rem;
+}
+
+.archive-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #d4a562;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.archive-back-link:hover {
+    color: #b88a4d;
+}
+
+.archive-header {
+    border-bottom: 1px solid #e6e8eb;
+    padding-bottom: 1.25rem;
+}
+
+.archive-header h1 {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    color: #1e293b;
+    font-size: 2.25rem;
+    line-height: 1.15;
+}
+
+.archive-header h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.05rem;
+    width: 46%;
+    height: 0.22rem;
+    background-color: rgba(212, 165, 98, 0.3);
+    z-index: -1;
+}
+
+.archive-header p {
+    margin: 0.55rem 0 0;
+    max-width: 44rem;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.archive-panel {
+    min-width: 0;
+    border: 1px solid #eef0f3;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px -28px rgba(15, 23, 42, 0.32);
+    overflow: hidden;
+}
+
+.news-archive-page .archive-news-list {
+    display: grid;
+    gap: 0;
+}
+
+.news-archive-page .news-item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.news-archive-page .news-date,
+.news-archive-page .news-content,
+.news-archive-page .news-content span {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.news-archive-page .news-date {
+    color: #1e293b;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.news-archive-page .news-content {
+    color: #3f454a;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.news-archive-page .news-content span {
+    display: block;
+    max-width: 48rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.news-archive-page .news-content a {
+    color: #224b8d;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.archive-footer {
+    border-top: 1px solid #eef0f3;
+    padding: 1.6rem 1rem;
+    text-align: center;
+}
+
+.archive-footer p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+    .archive-nav-inner {
+        height: auto;
+        min-height: 4.25rem;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .archive-nav-links {
+        width: 100%;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 0.1rem;
+    }
+
+    .archive-main {
+        width: 100%;
+        max-width: 100vw;
+        padding-top: 2rem;
+    }
+
+    .archive-header h1 {
+        font-size: 2rem;
+    }
+
+    .news-archive-page .news-item {
+        gap: 0.35rem;
+        padding: 1rem 0;
+    }
+
+    .news-archive-page .news-content {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .news-archive-page .news-content span {
+        max-width: calc(100vw - 4rem);
+    }
+
+    .news-archive-page .archive-panel {
+        width: 100%;
+        max-width: 100%;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+    }
 }
 
 /* Formal Text */
