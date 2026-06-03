@@ -1,24 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
 /* Base Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    color: #0f172a; /* slate-900 */
-    background-color: #f8fafc; /* slate-50 */
-    line-height: 1.6;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    color: #3f454a;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+html, body {
+    overflow-x: hidden;
 }
 
 /* Typography Overrides */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #3f454a;
 }
 
 .font-serif {
-    font-family: 'Crimson Text', serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
 }
 
 .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
 }
 
 /* Glassmorphism Navigation */
@@ -90,6 +96,12 @@ section {
     gap: 2rem;
 }
 
+.profile-column,
+.content-column {
+    min-width: 0;
+    max-width: 100%;
+}
+
 @media (min-width: 1024px) {
     .grid-layout {
         grid-template-columns: 320px 1fr;
@@ -153,19 +165,19 @@ details summary {
 
 /* New Publication List Styles */
 .pub-year-group {
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
 }
 
 .pub-year-header {
-    font-family: 'Inter', sans-serif; /* Wider than Crimson Text */
-    font-size: 1.35rem; /* Slightly larger */
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-size: 1.18rem;
     font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.05em; /* Add spacing for wider look */
-    color: #1e293b;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 0.25rem;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #3f454a;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e6e8eb;
+    padding-bottom: 0.2rem;
     display: inline-block;
 }
 
@@ -175,43 +187,44 @@ details summary {
 }
 
 .pub-list-item {
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
+    margin-bottom: 0.8rem;
+    line-height: 1.45;
 }
 
 .pub-line-1 {
-    font-size: 1rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.08rem;
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 0.35rem 0.5rem;
+    gap: 0.24rem 0.42rem;
 }
 
 .pub-venue-tag {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 4.1rem;
-    padding: 0.16rem 0.46rem;
-    border: 1px solid #d6a84f;
-    border-radius: 5px;
-    background: linear-gradient(180deg, #fff8e6 0%, #f5dfaa 100%);
-    color: #6f3f00;
+    display: inline-block;
+    padding: 0.06rem 0.32rem;
+    border: 0;
+    border-radius: 2px;
+    background: #00369f;
+    color: #ffffff;
+    font-family: "Courier New", Courier, monospace;
     font-weight: 700;
-    font-size: 0.74rem;
-    line-height: 1.05;
+    font-size: 0.7rem;
+    line-height: 1.25;
     letter-spacing: 0;
     text-transform: uppercase;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    box-shadow: none;
     vertical-align: baseline;
 }
 
 .pub-title-text {
     min-width: 0;
     font-weight: 600;
-    color: #1e293b;
+    color: #224b8d;
     overflow-wrap: anywhere;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 .pub-link-btn {
@@ -221,7 +234,7 @@ details summary {
     border: 1px solid #cbd5e1;
     border-radius: 4px;
     color: #475569;
-    margin-left: 0.5rem;
+    margin-left: 0;
     text-decoration: none;
     transition: all 0.2s;
     vertical-align: middle;
@@ -235,13 +248,13 @@ details summary {
 }
 
 .tag-arxiv {
-    border-color: #bfdbfe;
-    background: #eff6ff;
-    color: #2563eb; /* Blue for Arxiv */
+    background: #e9edf4;
+    color: #224b8d;
 }
 
 .tag-conference {
-    color: #6f3f00; /* Warm label for Conference/Journal */
+    background: #00369f;
+    color: #ffffff;
 }
 
 .pub-title-link {
@@ -258,20 +271,20 @@ details summary {
 }
 
 .pub-line-2 {
-    font-size: 0.95rem;
-    color: #4b5563; /* neutral-600 */
-    margin-bottom: 0.1rem;
+    font-size: 0.92rem;
+    color: #494e52;
+    margin-bottom: 0.04rem;
 }
 
 .pub-line-2 strong, .pub-line-2 b {
-    color: #1e293b; /* primary */
-    font-weight: 600;
+    color: #3f454a;
+    font-weight: 700;
 }
 
 .pub-line-3 {
     font-size: 0.9rem;
-    color: #64748b; /* slate-500 */
-    font-style: italic;
+    color: #494e52;
+    font-style: normal;
 }
 
 /* Publication Card Typography (Legacy/Unused for now) */
@@ -319,26 +332,89 @@ details summary {
 }
 
 .ccf-rank {
+    display: inline-block;
+    padding: 0.06rem 0.32rem;
+    border-radius: 2px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.7rem;
+    font-style: italic;
     font-weight: 700;
-    margin-left: 0.3rem;
+    line-height: 1.25;
+    vertical-align: baseline;
 }
 
 .ccf-a {
-    color: #dc2626; /* Red-600 */
+    color: #b91c1c;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
 }
 
 .ccf-b {
-    color: #2563eb; /* Blue-600 */
+    color: #1d4ed8;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
 }
 
 .ccf-c {
-    color: #16a34a; /* Green-600 */
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
 }
 
 .publication:hover {
     border-color: #d4a562; /* accent */
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
     transform: translateY(-2px);
+}
+
+.visitor-map-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 72px;
+    max-width: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.visitor-map-widget img,
+.visitor-map-widget iframe,
+.visitor-map-widget canvas,
+.visitor-map-widget a {
+    max-width: 180px !important;
+}
+
+.visitor-map-fallback {
+    color: #7a8288;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.visitor-map-placeholder {
+    color: #7a8288;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.visitor-map-fallback {
+    display: grid;
+    gap: 0.25rem;
+    justify-items: center;
+    text-decoration: none;
+}
+
+.visitor-map-fallback-globe {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: 1px solid #e2c38d;
+    background: radial-gradient(circle at 35% 30%, #fff7df 0, #ead19e 65%, #d4a562 100%);
+    color: #8a5a17;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    line-height: 1;
 }
 
 /* Venue Logo - Hidden for Text-Only Style */
@@ -357,18 +433,20 @@ details summary {
 }
 
 .news-date {
-    font-family: 'Kalam', cursive; /* Cleaner, wider handwriting font */
-    font-weight: 400; 
-    font-size: 0.9rem; 
-    color: #64748b;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #494e52;
     white-space: nowrap;
 }
 
 .news-content {
-    font-family: 'Kalam', cursive; /* Cleaner, wider handwriting font */
-    font-size: 0.95rem; 
-    color: #334155;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #494e52;
     line-height: 1.5;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .news-item:last-child {
@@ -377,9 +455,16 @@ details summary {
 
 /* Formal Text */
 .formal-font {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    text-align: left;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.formal-font.text-justify {
+    text-align: left;
 }
 
 /* Service Section */
@@ -400,11 +485,11 @@ details summary {
     font-weight: 600;
     color: #1e293b;
     margin-bottom: 0.35rem;
-    font-family: 'Inter', sans-serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
 }
 
 .service-items {
-    font-family: 'Inter', sans-serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
     font-size: 0.9rem; /* Match education text size (approx) */
     color: #475569;
     line-height: 1.5;

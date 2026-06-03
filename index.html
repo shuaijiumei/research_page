@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -29,8 +29,8 @@
               muted: "#64748b",
             },
             fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              serif: ["Crimson Text", "serif"],
+              sans: ["Trebuchet MS", "Helvetica", "Arial", "sans-serif"],
+              serif: ["Trebuchet MS", "Helvetica", "Arial", "sans-serif"],
             },
           },
         },
@@ -268,31 +268,11 @@
                   Visitor Map
                 </h3>
                 <div
-                  class="flex justify-center"
-                  style="max-width: 200px; margin: 0 auto"
+                  id="visitor-map-container"
+                  class="visitor-map-widget"
+                  data-mapmyvisitors-id="Ovsl6eaQwnLU-8YqIY-MLTXIrxG5Pqu74IuZhjlMWKM"
                 >
-                  <!-- ClustrMaps Widget -->
-                  <script
-                    type="text/javascript"
-                    id="clstr_globe"
-                    src="//clustrmaps.com/globe.js?d=b6X5dcpxh53iABdTmCvpxu2KfCyl8ZuZcJ9Cht8VMg0"
-                  ></script>
-                  <style>
-                    #clstr_globe {
-                      max-width: 180px !important;
-                      height: auto !important;
-                    }
-                    #clstr_globe iframe {
-                      max-width: 180px !important;
-                      transform: scale(0.7);
-                      transform-origin: center;
-                    }
-                  </style>
-                  <!-- Alternative: Simple flag counter style -->
-                  <!-- Uncomment below and comment above if you prefer a simpler version -->
-                  <!-- <a href="https://clustrmaps.com/site/YOUR_SITE_ID" title="Visit tracker">
-                                    <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=tt&d=YOUR_CLUSTRMAPS_ID&co=2d78ad&ct=808080" style="border-radius: 8px; max-width: 100%; height: auto;" />
-                                </a> -->
+                  <div class="visitor-map-placeholder">Loading visitor map...</div>
                 </div>
                 <p class="text-xs text-neutral-500 text-center mt-3">
                   Visitors from around the world
@@ -315,7 +295,7 @@
               <div
                 class="prose max-w-none text-neutral-600 text-justify formal-font"
               >
-                <p class="mb-4 italic">
+                <p class="mb-4">
                   I am a first-year PhD student at
                   <b
                     >Mohamed bin Zayed University of Artificial Intelligence
@@ -336,14 +316,8 @@
                   and collaborate closely with
                   <a href="https://siyuexi.github.io/">Junjielong Xu</a>. My
                   research interests lie at the intersection of
-                  <span
-                    style="
-                      font-family: 'Times New Roman', Times, serif;
-                      font-weight: 600;
-                    "
-                    >Large Language Models and Software Engineering
-                    (LLM4SE)</span
-                  >, with a particular focus on leveraging LLMs to address
+                  <span class="font-semibold">Large Language Models and
+                    Software Engineering (LLM4SE)</span>, with a particular focus on leveraging LLMs to address
                   critical software engineering challenges, including
                   intelligent code generation, automated program repair, and
                   comprehensive log analysis.
@@ -658,7 +632,7 @@
 
     <!-- Lazy load visitor map for performance -->
     <script>
-      // Use Intersection Observer to load ClustrMaps only when visible
+      // Use Intersection Observer to load the visitor map only when visible
       (function () {
         const mapContainer = document.getElementById("visitor-map-container");
         if (!mapContainer) return;
@@ -667,19 +641,23 @@
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                // Load the ClustrMaps script
                 const script = document.createElement("script");
                 script.type = "text/javascript";
-                script.id = "clstr_globe";
+                script.id = "mmvst_globe";
                 script.src =
-                  "//clustrmaps.com/globe.js?d=" +
-                  mapContainer.dataset.clustrmapsId;
+                  "https://mapmyvisitors.com/globe.js?d=" +
+                  encodeURIComponent(mapContainer.dataset.mapmyvisitorsId);
                 script.async = true;
 
-                // Remove loading placeholder once script loads
                 script.onload = function () {
-                  const placeholder = mapContainer.querySelector("div");
+                  const placeholder = mapContainer.querySelector(
+                    ".visitor-map-placeholder"
+                  );
                   if (placeholder) placeholder.remove();
+                };
+                script.onerror = function () {
+                  mapContainer.innerHTML =
+                    '<a class="visitor-map-fallback" href="https://mapmyvisitors.com/" target="_blank" rel="noopener" aria-label="Open visitor map"><span class="visitor-map-fallback-globe"><i class="fas fa-globe"></i></span><span>View visitor map</span></a>';
                 };
 
                 mapContainer.appendChild(script);

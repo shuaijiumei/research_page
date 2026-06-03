@@ -169,11 +169,13 @@ function loadPublications() {
       // Filter publications to show on homepage based on showOnHomepage flag
       let pubsToShow = publications;
 
-      // Sort by year descending (Preprints/Missing year at top)
+      // Sort by publication time descending.
       pubsToShow.sort((a, b) => {
-        const yearA = a.year ? parseInt(a.year) : 9999;
-        const yearB = b.year ? parseInt(b.year) : 9999;
-        return yearB - yearA;
+        const yearA = a.year ? parseInt(a.year, 10) : 9999;
+        const yearB = b.year ? parseInt(b.year, 10) : 9999;
+        const monthA = a.month ? parseInt(a.month, 10) : 0;
+        const monthB = b.month ? parseInt(b.month, 10) : 0;
+        return yearB * 100 + monthB - (yearA * 100 + monthA);
       });
 
       // Group by year
@@ -234,6 +236,15 @@ function loadPublications() {
             venueTagSpan.classList.add("tag-conference");
           }
           line1.appendChild(venueTagSpan);
+
+          // Optional data-driven CCF rank, displayed next to the venue label.
+          const ccfRank = pub.ccfRank || pub.ccf_rank || "";
+          if (ccfRank) {
+            const rankSpan = document.createElement("span");
+            rankSpan.className = `ccf-rank ccf-${ccfRank.toLowerCase()}`;
+            rankSpan.textContent = `CCF-${ccfRank}`;
+            line1.appendChild(rankSpan);
+          }
 
           // Title (with link if available)
           if (pub.link) {
@@ -336,15 +347,6 @@ function loadPublications() {
           const venueNameSpan = document.createElement("span");
           venueNameSpan.textContent = fullVenueName;
           line3.appendChild(venueNameSpan);
-
-          // 3. CCF Rank
-          const ccfRank = getCCFRank(fullVenueName, pub.venue);
-          if (ccfRank) {
-            const rankSpan = document.createElement("span");
-            rankSpan.className = `ccf-rank ccf-${ccfRank.toLowerCase()}`;
-            rankSpan.textContent = `(CCF-${ccfRank})`;
-            line3.appendChild(rankSpan);
-          }
 
           contentWrapper.appendChild(line3);
 
@@ -469,40 +471,6 @@ function getVenueFullName(venueStr, year) {
   if (s.toLowerCase().includes("arxiv")) return "arXiv preprint";
 
   return s;
-}
-
-function getCCFRank(fullName, originalVenue) {
-  const v = (fullName + " " + originalVenue).toLowerCase();
-
-  // CCF-A
-  if (
-    v.includes("tdsc") ||
-    v.includes("dependable and secure") ||
-    v.includes("tmc") ||
-    v.includes("mobile computing") ||
-    v.includes("aaai") ||
-    v.includes("neurips") ||
-    v.includes("cvpr") ||
-    v.includes("iccv") ||
-    v.includes("infocom") ||
-    v.includes("jsac") ||
-    v.includes("tosem") ||
-    v.includes("software engineering and methodology")
-  ) {
-    return "A";
-  }
-
-  // CCF-B
-  if (v.includes("icra")) {
-    return "B";
-  }
-
-  // CCF-C
-  if (v.includes("globecom")) {
-    return "C";
-  }
-
-  return null;
 }
 
 // Function to render news items
