@@ -411,6 +411,7 @@ function getVenueShortName(venueStr, year) {
   if (s.includes("LNET")) return "IEEE LNET";
   if (s.includes("TNSE")) return "IEEE TNSE";
   if (s.includes("IOTJ") || s.includes("IoTJ")) return "IEEE IoTJ";
+  if (s.includes("TOSEM")) return "ACM TOSEM";
 
   return s;
 }
@@ -442,6 +443,8 @@ function getVenueFullName(venueStr, year) {
     return "IEEE Internet of Things Journal";
   if (s.includes("LNET") || s.includes("LNet"))
     return "IEEE Networking Letters";
+  if (s.includes("TOSEM"))
+    return "ACM Transactions on Software Engineering and Methodology";
 
   // Conference Full Names Mapping (With Year Suffix)
   if (s.includes("NeurIPS"))
@@ -482,7 +485,9 @@ function getCCFRank(fullName, originalVenue) {
     v.includes("cvpr") ||
     v.includes("iccv") ||
     v.includes("infocom") ||
-    v.includes("jsac")
+    v.includes("jsac") ||
+    v.includes("tosem") ||
+    v.includes("software engineering and methodology")
   ) {
     return "A";
   }
