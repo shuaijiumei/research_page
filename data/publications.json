@@ -16,6 +16,20 @@
     ]
   },
   {
+    "title": "Skill Coverage: A Test Adequacy Metric for Agent Skills",
+    "authors": "Boyin Tan, Xiaowei Huang, Youcheng Sun",
+    "venue": "ArXiv",
+    "year": "2026",
+    "month": "06",
+    "highlight": "",
+    "thumbnail": "",
+    "link": "https://arxiv.org/abs/2606.20659",
+    "tags": [
+      { "text": "Paper", "link": "https://arxiv.org/pdf/2606.20659" },
+      { "text": "Project Page", "link": "https://shuaijiumei.github.io/skillcoverage/" }
+    ]
+  },
+  {
     "title": "SWE-Manager: Selecting and Synthesizing Golden Proposals Before Coding",
     "authors": "Boyin Tan*, Haoning Deng*, Junyuan Zhang, Junjielong Xu, Pinjia He, Youcheng Sun",
     "venue": "ArXiv",
