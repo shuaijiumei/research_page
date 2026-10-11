@@ -56,6 +56,19 @@ Born from the need for a balanced academic web presence, **AcaNova-X** is neithe
 
 ## 🚀 Quick Start
 
+### Visitor globe on boyintan.com
+
+The homepage records visits with FeedPulse's eager tracking pixel and renders
+the service's real country totals using a local copy of COBE 2.0.1 (MIT).
+The public statistics are at https://feed-pulse.com/site/boyintan.com/traffic;
+owner access starts at https://feed-pulse.com/dashboard?site=39aab0f1-5c88-453c-8ddc-c408bb3a0a02.
+The globe refreshes the public 30-day statistics every 30 seconds. Markers are country centers,
+not individual visitor coordinates; the count's tooltip shows the reporting
+period's start date. Visits are collected even when the globe is offscreen.
+The totals include setup test visits and do not import MapMyVisitors history.
+Country coordinates in `data/country-centers.json` come from
+[Google's DSPL sample](https://github.com/google/dspl/blob/master/samples/google/canonical/countries.csv).
+
 1.  **Clone/Copy**: Copy the `AcaNova-X` folder to your web server or GitHub Pages repository.
 2.  **Personalize**:
     *   Edit `index.html`: Update your name, bio, affiliation, and contact links.
