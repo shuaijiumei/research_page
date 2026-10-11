@@ -174,7 +174,7 @@
                 <p class="text-lg text-accent font-medium mb-1">PhD Student</p>
                 <p class="text-neutral-600 mb-2">MBZUAI</p>
                 <p class="pl-4 italic text-neutral-600 rounded-r-lg">
-                  "Passion is all you need."
+                  "Stay curious. Keep building."
                 </p>
               </div>
 
@@ -270,9 +270,21 @@
                 <div
                   id="visitor-map-container"
                   class="visitor-map-widget"
-                  data-mapmyvisitors-id="Ovsl6eaQwnLU-8YqIY-MLTXIrxG5Pqu74IuZhjlMWKM"
                 >
-                  <div class="visitor-map-placeholder">Loading visitor map...</div>
+                  <a
+                    href="https://mapmyvisitors.com/web/1c52h"
+                    target="_blank"
+                    rel="noopener"
+                    title="View visitor statistics"
+                  >
+                    <img
+                      src="https://mapmyvisitors.com/map.png?d=4tfG2l_Zd6WUGzofmH_x21vfmD0iadQsjdJTtBjQnzo&amp;cl=ffffff"
+                      alt="Visitor locations on a world map"
+                      width="180"
+                      height="114"
+                      loading="eager"
+                    />
+                  </a>
                 </div>
                 <p class="text-xs text-neutral-500 text-center mt-3">
                   Visitors from around the world
@@ -630,48 +642,5 @@
 
     <script src="script.js"></script>
 
-    <!-- Lazy load visitor map for performance -->
-    <script>
-      // Use Intersection Observer to load the visitor map only when visible
-      (function () {
-        const mapContainer = document.getElementById("visitor-map-container");
-        if (!mapContainer) return;
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const script = document.createElement("script");
-                script.type = "text/javascript";
-                script.id = "mmvst_globe";
-                script.src =
-                  "https://mapmyvisitors.com/globe.js?d=" +
-                  encodeURIComponent(mapContainer.dataset.mapmyvisitorsId);
-                script.async = true;
-
-                script.onload = function () {
-                  const placeholder = mapContainer.querySelector(
-                    ".visitor-map-placeholder"
-                  );
-                  if (placeholder) placeholder.remove();
-                };
-                script.onerror = function () {
-                  mapContainer.innerHTML =
-                    '<a class="visitor-map-fallback" href="https://mapmyvisitors.com/" target="_blank" rel="noopener" aria-label="Open visitor map"><span class="visitor-map-fallback-globe"><i class="fas fa-globe"></i></span><span>View visitor map</span></a>';
-                };
-
-                mapContainer.appendChild(script);
-                observer.disconnect(); // Stop observing after loading
-              }
-            });
-          },
-          {
-            rootMargin: "50px", // Start loading 50px before element is visible
-          }
-        );
-
-        observer.observe(mapContainer);
-      })();
-    </script>
   </body>
 </html>
