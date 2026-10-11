@@ -18,13 +18,8 @@ const globe = createGlobe(canvas, {
   markers: [],
 });
 
-let visible = false;
-new IntersectionObserver(([entry]) => {
-  visible = entry.isIntersecting;
-}).observe(canvas);
-
 function rotate(time) {
-  if (visible) globe.update({ phi: time * 0.00012 });
+  globe.update({ phi: time * 0.00012 });
   requestAnimationFrame(rotate);
 }
 requestAnimationFrame(rotate);
